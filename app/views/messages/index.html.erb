@@ -12,96 +12,21 @@
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-  <% if @message.errors.present? %>
-     <div class="alert alert-danger">
-      <%= alert %>
-      <ul>
-        <% @message.errors.full_messages.each do |full_message| %>
-          <li>
-           <%=full_message %>
-          </li>
-        <% end %>
-     </ul>
-  </div>
-<% end %>
+<%= form_for(Message.new) do |f| %>
 
+会社名:
+  <input id="message.name" name="message[name]" size="30" type="text" value="例) サンプル株式会社" />
+<br/>
+名前:
+  <input id="message.name" name="message[name]" size="30" type="text" value="例)煌木太郎" />
+<br/>
+メールアドレス:
+   <input id="message.name" name="message[name]" size="30" type="text" value="例)taro.kirameki@example.com" />
+<br/>
+内容:
+<br/>
+  <textarea cols="80" id="page_content" name="message[content]"  maxlength="150"  rows="5">具体的にお書き下さい</textarea>
 
-<%= form class="form-horizontal" %>
-<form class="form-horizontal">
-  
-  
-  <div class="form-group">
-  <div class="form-group">
-  
-  
-# @body.inputCompany = "例）サンプル株式会社"
-<%= text_area :body, :inputCompany %>
-# <textarea cols="40" id="body_inputCompany" name="body[inputCompany]" rows="20">例）サンプル株式会社</textarea>
+<form method="post" action="/blogs/new"  class="button_to"><div><input type="submit" value="新規作成" /><input name="authenticity_token" type="hidden" value="xxx" /></div></form>
 
-              <label for="inputCompany" class="col-md-2 control-label">会社名</label>
-              <div class="col-md-10">
-                <input type="test" class="form-control" id="inputCompany" placeholder="例）サンプル株式会社">
-              </div>
-         
-              
-              
-            </div>
-              <div class="form-group">
-              <label for="inputName" class="col-md-2 control-label">氏名</label>
-              <div class="col-md-10">
-                # <input type=>"test" class="form-control" id="inputName" placeholder="例）煌木 太郎">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputEmail" class="col-md-2 control-label">メールアドレス</label>
-              <div class="col-md-10">
-                # <input type=>"email" class="form-control" id="inputEmail" placeholder="例）taro.kirameki@example.com">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputTel" class="col-md-2 control-label">電話番号</label>
-              <div class="col-md-10">
-                # <input type=>"tel" class="form-control" id="inputTel" placeholder="例）0312345678">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputContent" class="col-md-2 control-label">お問い合わせ内容</label>
-              <div class="col-md-10">
-                <%= text_area class="form-control" id="inputContent" rows="4" placeholder="具体的にお書きください"></textarea>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                  <label>
-                    # <input type=>"checkbox">プライバシーポリシーに同意
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default btn-success btn-block">お問い合わせを送信</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="copyright">© 2015 SAMPLE Inc.</div>
-    </footer>
-  </body>
-</html>
-
-
-
-  名前:
-  <%= f.text_field :name %>
-  
-  <br/>
-  内容:
-  <%=  f.text_area  :body, :size=>"60x10" %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
