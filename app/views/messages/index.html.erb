@@ -6,26 +6,28 @@
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
+      <span class="label label-info"><%= message.age %>歳</span>
       <%= message.body %>
       <br>
     <% end %>
   </div>
 </div>
 
-<%= form_for(Message.new) do |f| %>
 
-会社名:
-  <input id="message.name" name="message[name]" size="30" type="text" value="例) サンプル株式会社" />
-<br/>
-名前:
-  <input id="message.name" name="message[name]" size="30" type="text" value="例)煌木太郎" />
-<br/>
-メールアドレス:
-   <input id="message.name" name="message[name]" size="30" type="text" value="例)taro.kirameki@example.com" />
-<br/>
-内容:
-<br/>
-  <textarea cols="80" id="page_content" name="message[content]"  maxlength="150"  rows="5">具体的にお書き下さい</textarea>
-<br/>  
+<%= form_for(Message.new) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div> 
+  <div class="form-group">  
+    <%= f.label :age, "年齢" %>
+    <%= f.text_field :age, class: "form-control" %>
+  </div> 
+
+  <div class="form-group">
+    <%= f.label :body, "内容" %>
+    <%= f.text_area :body, class: "form-control", rows: "4" %>
+  </div> 
+  
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
